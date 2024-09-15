@@ -12,12 +12,13 @@ class Enquiry(models.Model):
         ('weekend', 'Weekend'),
     ]
 
+
     COURSE_CHOICES = [
+        ('select', 'Select'),
         ('python', 'Python'),
         ('java', 'Java'),
         ('data_science', 'Data Science'),
     ]
-
     REFERENCE_CHOICES = [
         ('online', 'Online Advertisement'),
         ('friend', 'Friend Referral'),
@@ -34,7 +35,7 @@ class Enquiry(models.Model):
     experience = models.CharField(max_length=11, choices=FRESHER_OR_EXPERIENCED, default='fresher')
 
     batch_type = models.CharField(max_length=10, choices=BATCH_TYPE_CHOICES, default='weekday')
-    course = models.CharField(max_length=20, choices=COURSE_CHOICES, default='python')
+    course = models.CharField(max_length=20, choices=COURSE_CHOICES, default='select')
     institute_reference = models.CharField(max_length=20, choices=REFERENCE_CHOICES, default='online')
     date = models.DateTimeField(auto_now_add=True)
 #
