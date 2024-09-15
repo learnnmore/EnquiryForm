@@ -1,0 +1,8 @@
+body {
+    background-image: url('https://example.com/your-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Add any other styling here */

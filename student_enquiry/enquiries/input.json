@@ -1,0 +1,21 @@
+{
+    "name": "my_username",
+    "first-name": "My",
+    "last-name": "Username",
+    "display-name": "My Username",
+    "email": "user@example.test",
+    "password": {
+        "value": "my_password"
+    },
+    "active": true,
+    "attributes": {
+        "attributes": [
+            {
+                "name": "attr-name",
+                "values": [
+                    "attr-value"
+                ]
+            }
+        ]
+    }
+}
