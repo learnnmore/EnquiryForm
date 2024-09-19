@@ -1,0 +1,73 @@
+{% include "header.html" %}
+{% load static %}
+    <div class="container mt-2">
+        <h2 class="text-center">List of Trainers</h2>
+        <table class="table table-bordered table-striped">
+            <thead style="background-color: darkcyan;color: white;vertical-align: top;">
+                <tr>
+                    <th>Sl No</th>
+                    <th>Trainer Name</th>
+                    <th>Trainer Email</th>
+                    <th>Trainer Number</th>
+                    <th>Occupation</th>
+                    <th>Experience</th>
+                    <th>Batch Preferred</th>
+                    <th>Branch</th>
+                    <th>Training Mode</th>
+                    <th>Courses Handled</th>
+                    <th>Joining Date</th>
+                </tr>
+            </thead>
+            <tbody style="background-color: white;">
+                {% for trainer in page_obj %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ trainer.name }}</td>
+                    <td>{{ trainer.email }}</td>
+                    <td>{{ trainer.phone }}</td>
+                    <td>{{ trainer.occupation }}</td>
+                    <td>{{ trainer.experience }}</td>
+                    <td>{{ trainer.batch_type }}</td>
+                    <td>{{ trainer.branch_location }}</td>
+                    <td>{{ trainer.training_mode }}</td>
+                    <td>{{ trainer.course }}</td>
+                    <td>{{ trainer.date }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center">No Trainers.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Pagination controls -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">Previous</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item disabled">
+                    <span class="page-link">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                </li>
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">Last</a>
+
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    </div>
+

@@ -1,0 +1,83 @@
+{% include "header.html" %}
+{% load static %}
+<style>
+    input[type=text],input[type=email], select,textarea {
+      width: 100%;
+      padding: 8px 12px;
+      margin: 4px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+</style>
+<div class="container mt-2" >
+    <div class="card p-4" style="background-image: url('{% static 'images/form_bg.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+        <h2 class="text-left" style="color: rgb(49, 99, 48);">Trainer Details Entry</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label" ><b>Trainer Name <span class="text text-danger">*</span></b></label><br>
+                {{ form.name }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><b>Trainer Email <span class="text text-danger">*</span></b></label><br>
+                {{ form.email }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><b>Trainer Phone <span class="text text-danger">*</span></b></label><br>
+                {{ form.phone }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label" ><b>Occupation <span class="text text-danger">*</span></b></label><br>
+                {{ form.occupation }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label" ><b>Experience <span class="text text-danger">*</span></b></label><br>
+                {{ form.experience }}
+            </div>
+            <!-- Batch Type Section -->
+            <div class="mb-3">
+                <label class="form-label"><b>Batch Preferred <span class="text text-danger">*</span></b></label><br>
+                {{ form.batch_type }}
+            </div>
+
+            <!-- Batch Type Section -->
+            <div class="mb-3">
+                <label class="form-label"><b>Branch <span class="text text-danger">*</span></b></label><br>
+                {{ form.branch_location }}
+            </div>
+
+            <!-- Batch Type Section -->
+            <div class="mb-3">
+                <label class="form-label"><b>Training Mode <span class="text text-danger">*</span></b></label><br>
+                {{ form.training_mode }}
+            </div>
+
+            <!-- Course Selection Section -->
+            <div class="mb-3">
+                <label class="form-label"><b>Courses Handled <span class="text text-danger">*</span></b> (Press Ctrl to select multiple Courses)</label>
+                {{ form.course }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Trainer</button>
+        </form>
+
+    </div>
+</div>
+

@@ -80,3 +80,37 @@ def register_student(request):
     return render(request, 'register/register_student.html', {'form': form})
 def registration_success(request):
     return render(request, 'register/register_student.html')
+
+
+from django.shortcuts import render, redirect
+from .forms import TrainerForm
+from .models import Trainer
+def trainer_view(request):
+    if request.method == 'POST':
+        form = TrainerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('trainer_success')
+    else:
+        form = TrainerForm()
+
+    return render(request, 'trainer/trainer_form.html', {'form': form})
+
+def trainer_success_view(request):
+    return render(request, 'trainer/trainer_success.html')
+
+def trainer_list(request):
+    # Get filter parameters
+    course = request.GET.get('course')
+    experience = request.GET.get('experience')
+
+    # Build the query
+    trainer = Trainer.objects.all()
+
+    # Paginate the results
+    paginator = Paginator(trainer, 10)  # Show 10 enquiries per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # return render(request, 'enquiry_list.html', {'page_obj': page_obj})
+    return render(request, 'trainer/trainer_list.html', {'page_obj': page_obj})

@@ -29,4 +29,7 @@ urlpatterns = [
     path('enquiry/success/', views.enquiry_success_view, name='enquiry_success'),
     path('', views.home, name='home'),  # Home page
 
+    path('trainer/', views.trainer_view, name='trainer'),
+    path('trainer/success/', views.trainer_success_view, name='trainer_success'),
+    path('trainer_list/', views.trainer_list, name='trainer_list'),
 ]
