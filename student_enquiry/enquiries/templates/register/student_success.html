@@ -1,0 +1,68 @@
+{% load static %}
+{% include "header_login.html" %}
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0" style="border-bottom:5px solid;">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+                <h5 class="m-0 text-primary">
+                    <img src="{% static 'images/lt.PNG' %}" style="width:100px;" alt="LearnMore Technologies"/>
+                    Welcome, <span class="text-uppercase">{{ user.username }}</span>
+                </h5>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'enquiry_list' %}" class="nav-item nav-link">Enquire List</a>
+                    <a href="{% url 'register_student' %}" class="nav-item nav-link active">Register Student</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trainer Details</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'trainer' %}" class="dropdown-item">Trainer Entry</a>
+                            <a href="{% url 'trainer_list' %}" class="dropdown-item">Trainer List</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Receipt</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="" class="dropdown-item">Add Receipt</a>
+                            <a href="{% url 'reGenerateReceipt' %}" class="dropdown-item">Download Receipt</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                  <button class="btn btn-primary" type="submit" style="font-size: 20px;"><i class="fa fa-sign-out" style="color:white"></i></button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <div class="container mt-5">
+        <div class="card p-4">
+            <h2 class="text-center text-success">Thank You!</h2>
+            <p class="text-center">Student has been successfully added.</p>
+            <div class="text-center">
+
+                <form action="{% url 'generateReceipt' %}" method="post">
+                  {% csrf_token %}
+                    <input type="hidden" id="st_id" name="st_id" value="{{idv}}"/>
+                  <button class="btn btn-primary" id="download-btn" type="submit" style="font-size: 20px;">Generate Receipt</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("download-btn").onclick = function() {
+            setTimeout(function() {
+                window.location.href = "{% url 'register_student' %}";  // Change to your actual registration URL
+            }, 3000); // Wait for 3 seconds
+        };
+    </script>
+{% include "footer_login.html" %}

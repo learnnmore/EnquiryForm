@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <style>
+        table {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        * {margin:0; padding:0; text-indent:0; }
+        .s1 { color: #001F5F; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+        .s2 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 13.5pt; }
+        .s3 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
+        .s4 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 7pt; }
+        .s5 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8.5pt; }
+        .s6 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 6.5pt; }
+        .s7 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
+        .s9 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8.5pt; }
+        .s10 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8.5pt; }
+        .s11 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9.5pt; }
+        .s12 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 6pt; }
+        .s13 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 6pt; }
+    </style>
+</head>
+<body>
+    <table class="table" width="100%">
+        <tr>
+            <td width="10%"></td>
+            <td width="30%"></td>
+            <td width="20%"></td>
+            <td width="20%"></td>
+            <td width="20%"></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <td style="padding-left:10pt;padding-bottom:3pt;border-right-width:0pt;" width="18%">
+                            <img width="101" height="35" src="data:image/jpg;base64,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"/>
+                        </td>
+                        <td style="border-left-width:0pt;">
+                            <p class="s1" style="text-align: center;font-size: 20pt;margin-left: -14%;padding-top: 10pt;">TAX INVOICE</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr style="border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:2pt" bgcolor="#001F5F">
+             <td colspan="3">
+                <p class="s2" style="padding-top: 5pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Edulearntech Technologies Private Limited</p>
+            </td>
+            <td>
+                <p class="s2" style="padding-top: 5pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">GSTIN</p>
+            </td>
+            <td>
+                <p class="s3" style="padding-top: 5pt;padding-left:2pt;text-indent: 0pt;text-align: left;">29AAHCE2906M1ZB</p>
+            </td>
+        </tr>
+        <tr style="border-bottom-style:solid;border-bottom-width:1pt;">
+            <td colspan="3" rowspan="2">
+                <p class="s4" style="font-size: 10pt;padding-top: 5pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">
+                    No 5/3, 3rd Floor, Kundalahalli Gate, Varthur Rd, Next to AXIS Bank, Bengaluru, Karnataka 560066
+                    <br>
+                    Contact No : +91 95142 03013
+                </p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;">
+                <p class="s5" style="font-size: 10pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">Invoice No:</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;">
+                <p class="s6" style="font-size: 10pt;padding-left: 1pt;padding-top: 2pt;text-indent: 0pt;text-align: left;">
+                    receipt
+                </p>
+            </td>
+        </tr>
+        <tr style="border-bottom-style:solid;border-bottom-width:1pt;">
+            <td style="border-left-style:solid;border-left-width:1pt;">
+                <p class="s5" style="font-size: 10pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">Invoice Date:</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;">
+                <p class="s6" style="font-size: 10pt;padding-left: 1pt;padding-top: 2pt;text-indent: 0pt;text-align: left;">
+                    paid_on
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <p class="s5" style="font-size: 12pt;padding: 5pt;text-align: left;">Customer Details</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="s5" style="font-size: 12pt;padding: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Name:</p>
+            </td>
+            <td colspan="4" style="border-bottom-style:solid;border-bottom-width:1pt;">
+                <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">name</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-left-style:solid;border-left-width:2pt">
+                <p class="s5" style="font-size: 12pt;padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Email ID:</p>
+            </td>
+            <td colspan="4" style="border-bottom-style:solid;border-bottom-width:1pt;">
+                <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">email</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-left-style:solid;border-left-width:2pt">
+                <p class="s5" style="font-size: 12pt;padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Address:</p>
+            </td>
+            <td colspan="4" style="border-bottom-style:solid;border-bottom-width:1pt;">
+                <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">address</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-left-style:solid;border-left-width:2pt">
+                <p class="s5" style="font-size: 12pt;padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Mobile No:</p>
+            </td>
+            <td colspan="2">
+                <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">mobile</p>
+            </td>
+            <td>
+                <p class="s5" style="font-size: 12pt;padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Mode of Payment:</p>
+            </td>
+            <td>
+                <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">payment_mode</p>
+            </td>
+        </tr>
+        <tr style="border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:2pt;" bgcolor="#001F5F">
+             <td style="text-align:center;">
+                <p class="s9" style="padding-top: 5pt;padding-bottom: 5pt;">SL NO.</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;text-align:center;" colspan="3">
+                <p class="s9" style="padding-top: 5pt;padding-bottom: 5pt;">DESCRIPTION OF COURSE</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;text-align:center;">
+                <p class="s9" style="padding-top: 5pt;padding-bottom: 5pt;">AMOUNT PAID (Rs)</p>
+            </td>
+        </tr>
+        <tr style="height:265pt;vertical-align:top;">
+            <td>
+                <p class="s10" style="font-size:10pt;padding-top: 3pt;padding-left: 6pt;text-indent: 0pt;text-align: center;">1</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt" colspan="3">
+                <p class="s10" style="font-size:10pt;padding-top: 2pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">course_name</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt">
+                <p class="s10" style="font-size:10pt;padding-top: 2pt;padding-right: 15pt;text-indent: 0pt;text-align: right;">rate</p>
+            </td>
+        </tr>
+        <tr style="border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:2pt" bgcolor="#001F5F">
+            <td style="border-left-style:solid;border-left-width:2pt;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:1pt;border-right-color:#FFFFFF" colspan="4">
+                <p class="s9" style="font-size:10pt;padding-top: 2pt;padding-left: 1pt;padding-bottom: 5pt;text-indent: 0pt;text-align: left;">Total Taxable Value</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:2pt">
+                <p class="s9" style="font-size:10pt;padding-top: 2pt;padding-right: 15pt;padding-bottom: 5pt;text-indent: 0pt;text-align: right;">rate</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p class="s4" style="font-size:10pt;padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Amount of CGST</p>
+            </td>
+            <td>
+                <p class="s5" style="font-size:10pt;padding-top: 2pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">9.00%</p>
+            </td>
+            <td>
+                <p class="s5" style="font-size:10pt;padding-top: 2pt;padding-right: 15pt;text-indent: 0pt;text-align: right;">
+                    cgst
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p class="s4" style="font-size:10pt;padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Amount of SGST</p>
+            </td>
+            <td style="border-top-style:solid;border-top-width:1pt;">
+                <p class="s5" style="font-size:10pt;padding-top: 2pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">9.00%</p>
+            </td>
+            <td style="border-top-style:solid;border-top-width:1pt;">
+                <p class="s5" style="font-size:10pt;padding-top: 2pt;padding-right: 15pt;text-indent: 0pt;text-align: right;">
+                    sgst
+                </p>
+            </td>
+        </tr>
+        <tr style="border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:2pt" bgcolor="#001F5F">
+            <td style="border-left-style:solid;border-left-width:2pt;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:1pt;border-right-color:#FFFFFF" colspan="4">
+                <p class="s9" style="font-size:10pt;padding-top: 2pt;padding-left: 1pt;padding-bottom: 5pt;text-indent: 0pt;text-align: left;">Total Invoice Value</p>
+            </td>
+            <td style="border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:2pt">
+                <p class="s9" style="font-size:10pt;padding-top: 2pt;padding-right: 15pt;padding-bottom: 5pt;text-indent: 0pt;text-align: right;">fee_paid</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p class="s7" style="font-size:10pt;padding: 3pt;text-indent: 0pt;line-height: 5pt;text-align: left;">Terms and Conditions</p>
+            </td>
+            <td colspan="2" style="text-align: center;">
+                <p class="s5" style="font-size:10pt;padding: 3pt;text-indent: 0pt;line-height: 9pt;">For Edulearntech Technologies Private Limited</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p class="s5" style="font-size:10pt;padding-top: 3pt;padding-left: 10pt;text-indent: 0pt;line-height: 7pt;text-align: left;">1 Payment due to be paid with in 30 Days</p>
+                <p class="s5" style="font-size:10pt;padding-top: 3pt;padding-left: 10pt;text-indent: 0pt;line-height: 7pt;text-align: left;">2 Please include the Invoice No. on your Cheque</p>
+            </td>
+            <td colspan="2" style="text-align: center;">
+                <img width="130" height="35" src="data:image/jpg;base64,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"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+            </td>
+            <td colspan="2" style="text-align: center;">
+                <p class="s5" style="font-size:10pt;padding-left: 2pt;text-indent: 0pt;line-height: 9pt;">Authorised Signatory</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5"><br></td>
+        </tr>
+    </table>
+</body>
+</html>
