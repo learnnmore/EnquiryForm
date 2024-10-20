@@ -1,7 +1,49 @@
-{% include "header.html" %}
 {% load static %}
+{% include "header_login.html" %}
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0" style="border-bottom:5px solid;">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+                <h5 class="m-0 text-primary">
+                    <img src="{% static 'images/lt.PNG' %}" style="width:100px;" alt="LearnMore Technologies"/>
+                    Welcome, <span class="text-uppercase">{{ user.username }}</span>
+                </h5>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'enquiry_list' %}" class="nav-item nav-link">Enquire List</a>
+                    <a href="{% url 'register_student' %}" class="nav-item nav-link active">Register Student</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trainer Details</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'trainer' %}" class="dropdown-item">Trainer Entry</a>
+                            <a href="{% url 'trainer_list' %}" class="dropdown-item">Trainer List</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Receipt</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="" class="dropdown-item">Add Receipt</a>
+                            <a href="{% url 'reGenerateReceipt' %}" class="dropdown-item">Download Receipt</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                  <button class="btn btn-primary" type="submit" style="font-size: 20px;"><i class="fa fa-sign-out" style="color:white"></i></button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
 <style>
-    input[type=text],input[type=email], select,textarea {
+    input[type=text],input[type=email],input[type=date],input[type=number], select,textarea {
       width: 100%;
       padding: 8px 12px;
       margin: 4px 0;
@@ -25,15 +67,101 @@
     input[type=submit]:hover {
       background-color: #45a049;
     }
+
 </style>
-<div class="container mt-2">
+<div class="container mt-2" >
     <div class="card p-4" style="background-image: url('{% static 'images/form_bg.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
-        <h2 class="text-center mb-4">Student Registration Form</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+        <h2 class="text-left" style="color: rgb(49, 99, 48);">Student Registration</h2>
+        {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" ><b>Student Name <span class="text text-danger">*</span></b></label><br>
+                        {{ form.student_name }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Student Email <span class="text text-danger">*</span></b></label><br>
+                        {{ form.student_email }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Student Phone <span class="text text-danger">*</span></b></label><br>
+                        {{ form.student_mobile }}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="form-label" ><b>Student Address <span class="text text-danger">*</span></b></label><br>
+                        {{ form.student_address }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Student Pincode <span class="text text-danger">*</span></b></label><br>
+                        {{ form.student_pincode }}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Date of Joining <span class="text text-danger">*</span></b></label><br>
+                        {{ form.date_of_joining }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" ><b>Course Name <span class="text text-danger">*</span></b></label><br>
+                        {{ form.course_name }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Batch Type <span class="text text-danger">*</span></b></label><br>
+                        {{ form.batch_type }}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Total fee <span class="text text-danger">*</span></b></label><br>
+                        {{ form.total_fees }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Fee Paid <span class="text text-danger">*</span></b></label><br>
+                        {{ form.fee_paid }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Payment Mode <span class="text text-danger">*</span></b></label><br>
+                        {{ form.payment_mode }}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" ><b>Remaining Fee</b></label><br>
+                        {{ form.fee_remaining }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Last date to pay due</b></label><br>
+                        {{ form.last_date_to_pay }}
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" ><b>Trainer Assigned <span class="text text-danger">*</span></b></label><br>
+                        {{ form.trainer_name }}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label"><b>Remarks</b></label><br>
+                        {{ form.remarks }}
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Register Student</button>
+                    </div>
+                </div>
+            </form>
+        {% else %}
+            <p>Please Log in to add a trainer</p>
+            <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
     </div>
 </div>
 
+{% include "footer_login.html" %}

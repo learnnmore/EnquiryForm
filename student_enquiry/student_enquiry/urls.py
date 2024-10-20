@@ -15,9 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.shortcuts import redirect
+from django.urls import path, include
+from django.views.generic import TemplateView
 from enquiries import views
 # from register import views
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     path('register/', views.register_student, name='register_student'),
     path('register/registration_success/', views.registration_success, name='registration_success'),
@@ -32,4 +36,17 @@ urlpatterns = [
     path('trainer/', views.trainer_view, name='trainer'),
     path('trainer/success/', views.trainer_success_view, name='trainer_success'),
     path('trainer_list/', views.trainer_list, name='trainer_list'),
+
+    path("accounts/", include("django.contrib.auth.urls")),  # new
+    #path("", TemplateView.as_view(template_name="home.html"), name="home"),
+
+    #Generate Receipt
+    # path(r'generateReceipt/<str:search_string>/', views.generate_receipt, name='generate_receipt'),
+    path('generateReceipt/', views.generate_receipt, name='generateReceipt'),
+    path('testReceipt/', views.testReceipt, name='testReceipt'),
+    path('reGenerateReceipt/', views.reGenerateReceipt, name='reGenerateReceipt'),
+
+
+    path('', lambda request: redirect('login')),  # Redirects root to 'login'
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),  # Default login view
 ]

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <style type="text/css">
+            * {margin:0; padding:0; text-indent:0; }
+             .s1 { color: #001F5F; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+             .s2 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 13.5pt; }
+             .s3 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
+             .s4 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 7pt; }
+             .s5 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8.5pt; }
+             .s6 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 6.5pt; }
+             .s7 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
+             .s9 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8.5pt; }
+             .s10 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8.5pt; }
+             .s11 { color: #FFF; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9.5pt; }
+             .s12 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 6pt; }
+             .s13 { color: black; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 6pt; }
+             table, tbody {vertical-align: top; overflow: visible; }
+        </style>
+    </head>
+    <body>
+        <p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <table style="border-collapse:collapse;margin-left:6.47pt" cellspacing="0">
+            <tr style="height:35pt">
+                <td style="border-top-style:solid;border-top-width:2pt;border-left-style:solid;border-left-width:2pt;border-right-style:solid;border-right-width:2pt" colspan="7">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <td width="15%">
+                                <img src="{% static 'images/lt.PNG' %}" width="101" height="35" alt="LearnMore Technologies"/>
+                            </td>
+                            <td>
+                                <p class="s1" style="text-align: center;font-size: larger;margin-left: -14%;padding-top: 1%;">TAX INVOICE</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr bgcolor="#001F5F">
+                <td style="border-left-style:solid;border-left-width:2pt" colspan="5" >
+                    <p class="s2" style="padding-left: 2pt;text-indent: 0pt;line-height: 16pt;text-align: left;">Edulearntech Technologies Private Limited</p>
+                </td>
+                <td>
+                    <p class="s2" style="padding-left: 2pt;text-indent: 0pt;line-height: 16pt;text-align: left;">GSTIN</p>
+                </td>
+                <td style="border-right-style:solid;border-right-width:2pt">
+                    <p class="s3" style="padding-top: 4pt;text-indent: 0pt;text-align: left;">29AAHCE2906M1ZB</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-left-style:solid;border-left-width:2pt" colspan="5" rowspan="2">
+                    <p class="s4" style="font-size: 10pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">
+                        No 5/3, 3rd Floor, Kundalahalli Gate, Varthur Rd, Next to AXIS Bank, Bengaluru, Karnataka 560066
+                        <br>
+                        <br>
+                        Contact No : 095142 03013
+                    </p>
+                </td>
+                <td style="width:55pt;border-left-style:solid;border-left-width:1pt;border-left-color:#001F5F;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#001F5F;border-right-style:solid;border-right-width:1pt">
+                    <p class="s5" style="font-size: 10pt;padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Invoice No.</p>
+                </td>
+                <td style="width:89pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:2pt">
+                    <p class="s6" style="font-size: 10pt;padding-left: 1pt;padding-top: 2pt;text-indent: 0pt;text-align: left;">
+                        {{receipt}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:55pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F;border-left-style:solid;border-left-width:1pt;border-left-color:#001F5F;border-bottom-style:solid;border-bottom-width:2pt;border-bottom-color:#001F5F;border-right-style:solid;border-right-width:1pt">
+                    <p class="s7" style="font-size: 10pt;padding-top: 3pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Invoice Date:</p>
+                </td>
+                <td style="width:89pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:2pt">
+                    <p class="s7" style="font-size: 10pt;padding-top: 3pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">
+                        {{paid_on}}</p>
+                </td>
+            </tr>
+            <tr style="height:13pt">
+                <td style="border-top-style:solid;border-top-width:2pt;border-top-color:#001F5F;border-left-style:solid;border-left-width:2pt;border-right-style:solid;border-right-width:2pt" colspan="7">
+                    <p class="s5" style="padding-left: 1pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Customer Details</p>
+                </td>
+            </tr>
+            <tr style="height:17pt">
+                <td style="width:44pt;border-left-style:solid;border-left-width:2pt" colspan="2">
+                    <p class="s5" style="padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Name:</p>
+                </td>
+                <td style="width:190pt;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#001F5F;border-right-style:solid;border-right-width:2pt" colspan="5">
+                    <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">{{name}}</p>
+                </td>
+            </tr>
+            <tr style="height:17pt">
+                <td style="width:44pt;border-left-style:solid;border-left-width:2pt" colspan="2">
+                    <p class="s5" style="padding-top: 3pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Email ID:</p>
+                </td>
+                <td style="width:460pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#001F5F;border-right-style:solid;border-right-width:2pt" colspan="5">
+                    <p class="s5" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                        {{email}}</p>
+                </td>
+            </tr>
+            <tr style="height:25pt">
+                <td style="width:44pt;border-left-style:solid;border-left-width:2pt" colspan="2">
+                    <p class="s5" style="padding-left: 1pt;text-indent: 0pt;text-align: left;">Address:</p>
+                </td>
+                <td style="width:460pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#001F5F;border-right-style:solid;border-right-width:2pt" colspan="5">
+                    <p class="s5" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{address}}</p>
+                </td>
+            </tr>
+            <tr style="height:12pt">
+                <td style="width:44pt;border-left-style:solid;border-left-width:2pt" colspan="2">
+                    <p class="s5" style="text-indent: 0pt;text-align: left;">Mobile No:</p>
+                </td>
+                <td style="width:190pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F">
+                    <p class="s5" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{mobile}}</p>
+                </td>
+                <td style="width:82pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F">
+                    <p class="s5" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Mode of Payment:</p>
+                </td>
+                <td style="width:44pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F">
+                    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                </td>
+                <td style="width:144pt;border-top-style:solid;border-top-width:1pt;border-top-color:#001F5F;border-right-style:solid;border-right-width:2pt" colspan="2">
+                    <p class="s5" style="padding-left: 29pt;text-indent: 0pt;text-align: left;">{{payment_mode}}</p>
+                </td>
+            </tr>
+            <tr style="height:25pt" bgcolor="#001F5F">
+                <td style="border-left-style:solid;border-left-width:2pt;border-right-style:solid;border-right-width:1pt;border-right-color:#FFFFFF" colspan="2">
+                    <p class="s9" style="padding-top: 5pt;padding-left: 4pt;">SL NO.</p>
+                </td>
+                <td style="border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;border-right-style:solid;border-right-width:1pt;border-right-color:#FFFFFF" colspan="4">
+                    <p class="s9" style="padding-top: 5pt;text-align: center;">DESCRIPTION OF COURSE</p>
+                </td>
+
+                <td style="border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;border-right-style:solid;border-right-width:2pt">
+                    <p class="s9" style="padding-top: 5pt;text-align: center;">AMOUNT PAID (Rs)</p>
+                </td>
+            </tr>
+            <tr style="height:265pt;">
+                <td style="border-left-style:solid;border-left-width:2pt;border-right-style:solid;border-right-width:1pt;border-right-color:#001F5F" colspan="2">
+                    <p class="s10" style="font-size:10pt;padding-top: 3pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">1</p>
+                </td>
+                <td style="width:217pt;border-left-style:solid;border-left-width:1pt;border-left-color:#001F5F;border-right-style:solid;border-right-width:1pt;border-right-color:#001F5F" colspan="4">
+                    <p class="s10" style="font-size:10pt;padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">{{course_name}}</p>
+                </td>
+
+                <td style="width:89pt;border-left-style:solid;border-left-width:1pt;border-left-color:#001F5F;border-right-style:solid;border-right-width:2pt">
+                    <p class="s10" style="font-size:10pt;padding-top: 3pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">
+                        {{rate}}</p>
+                </td>
+            </tr>
+            <tr style="height:17pt" bgcolor="#001F5F">
+                <td style="width:234pt;border-left-style:solid;border-left-width:2pt;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:1pt;border-right-color:#FFFFFF" colspan="6">
+                    <p class="s9" style="padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Total Taxable Value</p>
+                </td>
+
+                <td style="width:89pt;border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:2pt">
+                    <p class="s9" style="padding-top: 3pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">{{rate}}</p>
+                </td>
+            </tr>
+
+            <tr style="height:16pt">
+                <td style="width:234pt;border-left-style:solid;border-left-width:2pt" colspan="5">
+                    <p class="s4" style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Amount of CGST</p>
+                </td>
+                <td style="width:55pt;border-top-style:dotted;border-top-width:1pt;border-top-color:#29496F;border-bottom-style:dotted;border-bottom-width:1pt;border-bottom-color:#29496F">
+                    <p class="s5" style="padding-top: 2pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">9.00%</p>
+                </td>
+                <td style="width:89pt;border-top-style:dotted;border-top-width:1pt;border-top-color:#29496F;border-bottom-style:dotted;border-bottom-width:1pt;border-bottom-color:#29496F;border-right-style:solid;border-right-width:2pt">
+                    <p class="s5" style="padding-top: 2pt;padding-right: 3pt;text-indent: 0pt;text-align: right;">
+                        {{cgst}}</p>
+                </td>
+            </tr>
+            <tr style="height:16pt">
+                <td style="width:234pt;border-left-style:solid;border-left-width:2pt" colspan="5">
+                    <p class="s4" style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Amount of SGST</p>
+                </td>
+                <td style="width:55pt;border-top-style:dotted;border-top-width:1pt;border-top-color:#29496F;border-bottom-style:dotted;border-bottom-width:1pt;border-bottom-color:#29496F">
+                    <p class="s5" style="padding-top: 2pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">9.00%</p>
+                </td>
+                <td style="width:89pt;border-top-style:dotted;border-top-width:1pt;border-top-color:#29496F;border-bottom-style:dotted;border-bottom-width:1pt;border-bottom-color:#29496F;border-right-style:solid;border-right-width:2pt">
+                    <p class="s5" style="padding-top: 2pt;padding-right: 3pt;text-indent: 0pt;text-align: right;">
+                        {{sgst}}</p>
+                </td>
+            </tr>
+
+            <tr style="height:17pt">
+                <td style="width:415pt;border-left-style:solid;border-left-width:2pt;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:1pt;border-right-color:#FFFFFF" colspan="6" bgcolor="#001F5F">
+                    <p class="s11" style="padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Total Invoice Value</p>
+                </td>
+                <td style="width:89pt;border-left-style:solid;border-left-width:1pt;border-left-color:#FFFFFF;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#FFFFFF;border-right-style:solid;border-right-width:2pt" bgcolor="#001F5F">
+                    <p class="s11" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">
+                        {{fee_paid}}</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding-top:2pt;border-left-style:solid;border-left-width:2pt;border-right-style:solid;border-right-width:2pt" colspan="7">
+                    <p class="s12" style="font-size:10pt;padding-left: 1pt;text-indent: 0pt;line-height: 5pt;text-align: left;">Terms and Conditions</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 3pt;border-left-style:solid;border-left-width:2pt" colspan="4">
+                    <p class="s13" style="font-size:10pt;padding-top: 3pt;padding-left: 10pt;text-indent: 0pt;line-height: 7pt;text-align: left;">1 Total Payment Due in 30 Days</p>
+                    <p class="s13" style="font-size:10pt;padding-top: 3pt;padding-left: 10pt;text-indent: 0pt;line-height: 7pt;text-align: left;">2 Please include the Invoice No. on your Cheque</p>
+                </td>
+
+                <td style="width:188pt;border-right-style:solid;border-right-width:2pt" colspan="3">
+                    <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 9pt;text-align: left;">For Edulearntech Technologies Private Limited</p>
+                </td>
+            </tr>
+
+            <tr style="height:26pt">
+                <td style="width:17pt;border-left-style:solid;border-left-width:2pt;border-bottom-style:solid;border-bottom-width:2pt">
+                    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                </td>
+                <td style="width:27pt;border-bottom-style:solid;border-bottom-width:2pt">
+                    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                </td>
+                <td style="width:190pt;border-bottom-style:solid;border-bottom-width:2pt">
+                    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                </td>
+                <td style="width:82pt;border-bottom-style:solid;border-bottom-width:2pt">
+                    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                </td>
+                <td style="width:44pt;border-bottom-style:solid;border-bottom-width:2pt">
+                    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                </td>
+
+                <td style="width:89pt;border-bottom-style:solid;border-bottom-width:2pt;border-right-style:solid;border-right-width:2pt" colspan="2">
+                    <p style="text-indent: 0pt;text-align: left;">
+                        <span>
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <img width="130" height="35" src="{% static 'images/ln_sign.jpg' %}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </span>
+                    </p>
+                    <p class="s5" style="padding-top: 7pt;padding-left: 4pt;text-indent: 0pt;text-align: left;">Authorised Signatory</p>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>

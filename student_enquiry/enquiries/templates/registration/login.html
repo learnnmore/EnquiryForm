@@ -1,0 +1,100 @@
+{% load static %}
+{% include "header_static.html" %}
+<style>
+  .login {
+  width: 500px;
+  padding: 3% 0 0;
+  margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 0;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-top: -6%;
+    padding-top: 10%;
+  }
+
+.form input {
+    font-family: "Lato", sans-serif;
+    outline: 0;
+    background: #e7e4e4;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+.form button {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #e4306f;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+
+.form button:hover,.form button:active,.form button:focus {
+    background: #3d3d3d;
+  }
+
+
+   .border-radius-lg {
+  border-radius: 0.5rem;
+}
+.bg-gradient-primary {
+  background-image: linear-gradient(195deg, #EC407A 0%, #D81B60 100%);
+}
+.shadow-primary {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4) !important;
+}
+body {
+  background: linear-gradient(rgba(40, 120, 235, 0.9), rgba(40, 120, 235, 0.9)), no-repeat center center;
+    background-size: auto, auto, auto;
+  background-size: cover;
+}
+</style>
+<body>
+<!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+                <h3 class="m-0 text-uppercase text-primary"><img src="{% static 'images/lt.PNG' %}" style="width:100px;" alt="LearnMore Technologies"/>Learn More Technologies</h3>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+<div class="container">
+  <div class="login">
+    <div class="card-header p-0 position-relative z-index-2" style="width: 65%;margin-left: 18%;z-index: 1;">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
+                </div>
+              </div>
+    <div class="form">
+
+  <form class="login-form" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Log In</button>
+  </form>
+    </div>
+    </div>
+</div>
+</body>

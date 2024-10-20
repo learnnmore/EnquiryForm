@@ -1,14 +1,57 @@
-{% include "header.html" %}
 {% load static %}
-    <div class="container mt-2">
+{% include "header_login.html" %}
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0" style="border-bottom:5px solid;">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+                <h5 class="m-0 text-primary">
+                    <img src="{% static 'images/lt.PNG' %}" style="width:100px;" alt="LearnMore Technologies"/>
+                    Welcome, <span class="text-uppercase">{{ user.username }}</span>
+                </h5>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'enquiry_list' %}" class="nav-item nav-link">Enquire List</a>
+                    <a href="{% url 'register_student' %}" class="nav-item nav-link">Register Student</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Trainer Details</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'trainer' %}" class="dropdown-item">Trainer Entry</a>
+                            <a href="{% url 'trainer_list' %}" class="dropdown-item">Trainer List</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Receipt</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="" class="dropdown-item">Add Receipt</a>
+                            <a href="{% url 'reGenerateReceipt' %}" class="dropdown-item">Download Receipt</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                  <button class="btn btn-primary" type="submit" style="font-size: 20px;"><i class="fa fa-sign-out" style="color:white"></i></button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <div style="padding:10px;">
         <h2 class="text-center">List of Trainers</h2>
         <table class="table table-bordered table-striped">
             <thead style="background-color: darkcyan;color: white;vertical-align: top;">
                 <tr>
                     <th>Sl No</th>
-                    <th>Trainer Name</th>
-                    <th>Trainer Email</th>
-                    <th>Trainer Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Address</th>
                     <th>Occupation</th>
                     <th>Experience</th>
                     <th>Batch Preferred</th>
@@ -19,19 +62,20 @@
                 </tr>
             </thead>
             <tbody style="background-color: white;">
-                {% for trainer in page_obj %}
+                {% for trainer in results %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ trainer.name }}</td>
                     <td>{{ trainer.email }}</td>
                     <td>{{ trainer.phone }}</td>
+                    <td>{{ trainer.address }}</td>
                     <td>{{ trainer.occupation }}</td>
                     <td>{{ trainer.experience }}</td>
                     <td>{{ trainer.batch_type }}</td>
                     <td>{{ trainer.branch_location }}</td>
                     <td>{{ trainer.training_mode }}</td>
-                    <td>{{ trainer.course }}</td>
-                    <td>{{ trainer.date }}</td>
+                    <td>{{ trainer.courses }}</td>
+                    <td>{{ trainer.date_of_joining }}</td>
                 </tr>
                 {% empty %}
                 <tr>
@@ -41,33 +85,7 @@
             </tbody>
         </table>
 
-        <!-- Pagination controls -->
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page=1{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">First</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">Previous</a>
-                </li>
-                {% endif %}
-
-                <li class="page-item disabled">
-                    <span class="page-link">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-                </li>
-
-                {% if page_obj.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">Next</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.course %}&course={{ request.GET.course }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}">Last</a>
-
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
-
     </div>
 
+
+{% include "footer_login.html" %}
